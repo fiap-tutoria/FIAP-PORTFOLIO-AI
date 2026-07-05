@@ -47,7 +47,7 @@ Organizar e versionar todo o fluxo de desenvolvimento acadêmico, garantindo:
 ## 🧠 Estrutura Macro do Repositório
 
 ```bash
-📂 FIAP-PORTFOLIO
+📂 FIAP-PORTFOLIO-AI
 │
 ├── 📂 1TIAO
 │   ├── 📂 ENTERPRISE-CHALLENGE
