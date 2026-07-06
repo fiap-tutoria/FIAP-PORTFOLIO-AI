@@ -1,0 +1,225 @@
+<svg width="1280" height="400" viewBox="0 0 1280 400" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="FIAP - Inteligencia Artificial - Graduacao ON - Portfolio Oficial">
+  <defs>
+    <!-- Deep space background -->
+    <radialGradient id="bgGlow" cx="34%" cy="40%" r="85%">
+      <stop offset="0%" stop-color="#14101F"/>
+      <stop offset="46%" stop-color="#0A0A14"/>
+      <stop offset="100%" stop-color="#07070D"/>
+    </radialGradient>
+
+    <!-- Aurora depth blobs -->
+    <radialGradient id="auroraM" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ED0A55" stop-opacity="0.42"/>
+      <stop offset="55%" stop-color="#ED0A55" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#ED0A55" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="auroraV" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.38"/>
+      <stop offset="100%" stop-color="#7C3AED" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="auroraC" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Holographic magenta -> violet -> cyan sheen for the wordmark -->
+    <linearGradient id="holo" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"  stop-color="#FF2E7E"/>
+      <stop offset="30%" stop-color="#ED0A55"/>
+      <stop offset="56%" stop-color="#A855F7"/>
+      <stop offset="82%" stop-color="#22D3EE"/>
+      <stop offset="100%" stop-color="#FF2E7E"/>
+    </linearGradient>
+
+    <!-- Moving holographic sweep overlay -->
+    <linearGradient id="sweep" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="45%"  stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="50%"  stop-color="#ffffff" stop-opacity="0.85"/>
+      <stop offset="55%"  stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+      <animateTransform attributeName="gradientTransform" type="translate"
+        values="-1 0; 1 0; -1 0" dur="6.5s" repeatCount="indefinite" calcMode="spline"
+        keyTimes="0;0.5;1" keySplines="0.4 0 0.2 1;0.4 0 0.2 1"/>
+    </linearGradient>
+
+    <linearGradient id="magentaLine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ED0A55" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#FF2E7E" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#22D3EE" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Neural edge gradient -->
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ED0A55"/>
+      <stop offset="50%" stop-color="#A855F7"/>
+      <stop offset="100%" stop-color="#22D3EE"/>
+    </linearGradient>
+
+    <!-- Node glow gradients -->
+    <radialGradient id="gM" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF6FA5"/><stop offset="45%" stop-color="#ED0A55"/><stop offset="100%" stop-color="#ED0A55" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gC" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#9BF3FF"/><stop offset="45%" stop-color="#22D3EE"/><stop offset="100%" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="gV" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#C89BFF"/><stop offset="45%" stop-color="#A855F7"/><stop offset="100%" stop-color="#A855F7" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="softGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="3.2"/>
+    </filter>
+    <filter id="textGlow" x="-20%" y="-60%" width="140%" height="220%">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <clipPath id="wordClip">
+      <text x="90" y="236" font-family="'Segoe UI', Helvetica, Arial, sans-serif"
+        font-size="188" font-weight="800" letter-spacing="3">FIAP</text>
+    </clipPath>
+
+    <style>
+      @keyframes nodePulse { 0%,100%{opacity:.4} 50%{opacity:1} }
+      @keyframes twinkle { 0%,100%{opacity:.18} 50%{opacity:.95} }
+      @keyframes edgeBreathe { 0%,100%{opacity:.16} 50%{opacity:.5} }
+      @keyframes auroraA { 0%,100%{opacity:.55; transform:translate(0,0)} 50%{opacity:1; transform:translate(-16px,-10px)} }
+      @keyframes auroraB { 0%,100%{opacity:.5; transform:translate(0,0)} 50%{opacity:.9; transform:translate(14px,8px)} }
+      @keyframes drift { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-8px,-6px)} }
+      .node  { animation: nodePulse 3.4s ease-in-out infinite; }
+      .star  { animation: twinkle 5s ease-in-out infinite; }
+      .edge  { animation: edgeBreathe 8s ease-in-out infinite; }
+      .netA  { animation: auroraA 16s ease-in-out infinite; }
+      .netB  { animation: auroraB 20s ease-in-out infinite; }
+      .net   { animation: drift 22s ease-in-out infinite; }
+      /* Essential brand text (wordmark + subtitle) is always fully visible —
+         never gated behind an entrance animation, so it renders even with
+         reduced-motion or a static first frame. Motion comes from the sheen,
+         neural pulses and aurora only. */
+      @media (prefers-reduced-motion: reduce) {
+        .node,.star,.edge,.netA,.netB,.net { animation: none; }
+      }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="400" fill="url(#bgGlow)"/>
+
+  <!-- Aurora depth -->
+  <g>
+    <ellipse class="netA" cx="330" cy="215" rx="470" ry="330" fill="url(#auroraM)"/>
+    <ellipse class="netB" cx="1050" cy="120" rx="360" ry="300" fill="url(#auroraV)"/>
+    <ellipse class="netA" cx="960" cy="330" rx="330" ry="250" fill="url(#auroraC)" style="animation-delay:-6s"/>
+  </g>
+
+  <!-- Particle starfield -->
+  <g fill="#E8EAF2">
+    <circle class="star" cx="150" cy="70" r="1.3"/>
+    <circle class="star" cx="300" cy="330" r="1" style="animation-delay:-1.3s"/>
+    <circle class="star" cx="560" cy="60" r="1.2" style="animation-delay:-2.2s"/>
+    <circle class="star" cx="470" cy="350" r="1" style="animation-delay:-.7s"/>
+    <circle class="star" cx="640" cy="300" r="1" style="animation-delay:-3.1s"/>
+    <circle class="star" cx="1245" cy="70" r="1.3" style="animation-delay:-1.9s"/>
+    <circle class="star" cx="70" cy="250" r="1" style="animation-delay:-4.2s"/>
+    <circle class="star" cx="1200" cy="330" r="1.1" style="animation-delay:-2.6s"/>
+    <circle class="star" cx="700" cy="120" r="1" style="animation-delay:-3.6s"/>
+    <circle class="star" cx="250" cy="150" r="1" style="animation-delay:-.4s"/>
+  </g>
+
+  <!-- ===== NEURAL CONSTELLATION (right side) ===== -->
+  <g class="net">
+    <!-- edges -->
+    <g stroke="url(#edge)" stroke-width="1.15" fill="none">
+      <line class="edge" x1="780" y1="110" x2="900" y2="70"/>
+      <line class="edge" x1="900" y1="70"  x2="1030" y2="120" style="animation-delay:-1s"/>
+      <line class="edge" x1="1030" y1="120" x2="1150" y2="80" style="animation-delay:-2s"/>
+      <line class="edge" x1="1150" y1="80"  x2="1210" y2="170" style="animation-delay:-3s"/>
+      <line class="edge" x1="780" y1="110" x2="850" y2="192" style="animation-delay:-1.5s"/>
+      <line class="edge" x1="850" y1="192" x2="980" y2="212" style="animation-delay:-2.5s"/>
+      <line class="edge" x1="980" y1="212" x2="1030" y2="120" style="animation-delay:-3.5s"/>
+      <line class="edge" x1="980" y1="212" x2="1100" y2="205" style="animation-delay:-.5s"/>
+      <line class="edge" x1="1100" y1="205" x2="1210" y2="170" style="animation-delay:-4s"/>
+      <line class="edge" x1="850" y1="192" x2="765" y2="285" style="animation-delay:-2.2s"/>
+      <line class="edge" x1="765" y1="285" x2="905" y2="305" style="animation-delay:-1.1s"/>
+      <line class="edge" x1="905" y1="305" x2="980" y2="212" style="animation-delay:-3.2s"/>
+      <line class="edge" x1="905" y1="305" x2="1035" y2="320" style="animation-delay:-.9s"/>
+      <line class="edge" x1="1035" y1="320" x2="1155" y2="290" style="animation-delay:-2.7s"/>
+      <line class="edge" x1="1155" y1="290" x2="1100" y2="205" style="animation-delay:-1.8s"/>
+      <line class="edge" x1="1155" y1="290" x2="1205" y2="235" style="animation-delay:-3.8s"/>
+      <line class="edge" x1="1035" y1="320" x2="980" y2="212" style="animation-delay:-4.4s"/>
+    </g>
+
+    <!-- travelling pulses -->
+    <g filter="url(#softGlow)">
+      <circle r="3.2" fill="#FFFFFF">
+        <animateMotion dur="3.4s" repeatCount="indefinite" path="M780 110 L900 70 L1030 120"/>
+        <animate attributeName="fill" values="#FF2E7E;#22D3EE;#FF2E7E" dur="3.4s" repeatCount="indefinite"/>
+      </circle>
+      <circle r="2.8" fill="#22D3EE">
+        <animateMotion dur="4.2s" begin="0.7s" repeatCount="indefinite" path="M850 192 L980 212 L1100 205 L1210 170"/>
+      </circle>
+      <circle r="2.8" fill="#A855F7">
+        <animateMotion dur="3.9s" begin="1.3s" repeatCount="indefinite" path="M765 285 L905 305 L1035 320 L1155 290"/>
+      </circle>
+      <circle r="3" fill="#FF2E7E">
+        <animateMotion dur="3.2s" begin="0.4s" repeatCount="indefinite" path="M980 212 L1030 120 L1150 80"/>
+      </circle>
+      <circle r="2.6" fill="#9BF3FF">
+        <animateMotion dur="4.6s" begin="1.9s" repeatCount="indefinite" path="M905 305 L980 212 L850 192 L780 110"/>
+      </circle>
+    </g>
+
+    <!-- nodes: outer glow + core -->
+    <g>
+      <circle class="node" cx="780" cy="110" r="12" fill="url(#gV)"/><circle cx="780" cy="110" r="3.4" fill="#C89BFF"/>
+      <circle class="node" cx="900" cy="70" r="11" fill="url(#gC)" style="animation-delay:-.6s"/><circle cx="900" cy="70" r="3" fill="#9BF3FF"/>
+      <circle class="node" cx="1030" cy="120" r="17" fill="url(#gM)" style="animation-delay:-1.1s"/><circle cx="1030" cy="120" r="4.6" fill="#FF6FA5"/>
+      <circle class="node" cx="1150" cy="80" r="11" fill="url(#gC)" style="animation-delay:-1.8s"/><circle cx="1150" cy="80" r="3" fill="#9BF3FF"/>
+      <circle class="node" cx="1210" cy="170" r="12" fill="url(#gV)" style="animation-delay:-2.3s"/><circle cx="1210" cy="170" r="3.2" fill="#C89BFF"/>
+      <circle class="node" cx="850" cy="192" r="14" fill="url(#gM)" style="animation-delay:-2.9s"/><circle cx="850" cy="192" r="3.8" fill="#FF6FA5"/>
+      <circle class="node" cx="980" cy="212" r="18" fill="url(#gC)" style="animation-delay:-.3s"/><circle cx="980" cy="212" r="4.8" fill="#9BF3FF"/>
+      <circle class="node" cx="1100" cy="205" r="13" fill="url(#gM)" style="animation-delay:-3.4s"/><circle cx="1100" cy="205" r="3.6" fill="#FF6FA5"/>
+      <circle class="node" cx="765" cy="285" r="11" fill="url(#gC)" style="animation-delay:-1.4s"/><circle cx="765" cy="285" r="3" fill="#9BF3FF"/>
+      <circle class="node" cx="905" cy="305" r="13" fill="url(#gV)" style="animation-delay:-2.1s"/><circle cx="905" cy="305" r="3.6" fill="#C89BFF"/>
+      <circle class="node" cx="1035" cy="320" r="14" fill="url(#gM)" style="animation-delay:-.8s"/><circle cx="1035" cy="320" r="3.8" fill="#FF6FA5"/>
+      <circle class="node" cx="1155" cy="290" r="11" fill="url(#gC)" style="animation-delay:-3.7s"/><circle cx="1155" cy="290" r="3" fill="#9BF3FF"/>
+      <circle class="node" cx="1205" cy="235" r="10" fill="url(#gV)" style="animation-delay:-4.1s"/><circle cx="1205" cy="235" r="2.8" fill="#C89BFF"/>
+    </g>
+  </g>
+
+  <!-- Vertical accent hairline -->
+  <line x1="90" y1="92" x2="90" y2="300" stroke="url(#magentaLine)" stroke-width="2" opacity="0.9"/>
+
+  <!-- ===== WORDMARK ===== -->
+  <g>
+    <g clip-path="url(#wordClip)">
+      <rect x="80" y="70" width="640" height="200" fill="url(#holo)"/>
+      <rect x="80" y="70" width="640" height="200" fill="url(#sweep)"/>
+    </g>
+    <text x="90" y="236" font-family="'Segoe UI', Helvetica, Arial, sans-serif"
+      font-size="188" font-weight="800" letter-spacing="3"
+      fill="none" stroke="#FF2E7E" stroke-width="0.8" opacity="0.5"
+      filter="url(#textGlow)">FIAP</text>
+  </g>
+
+  <!-- Subtitle block -->
+  <g>
+    <text x="96" y="290" font-family="'Segoe UI', Helvetica, Arial, sans-serif"
+      font-size="30" font-weight="600" letter-spacing="12.5" fill="#EAF0FF">INTELIGÊNCIA ARTIFICIAL</text>
+    <text x="98" y="329" font-family="'Segoe UI', Helvetica, Arial, sans-serif"
+      font-size="15" font-weight="500" letter-spacing="5" fill="#22D3EE">GRADUAÇÃO ON<tspan fill="#6B7699"> • </tspan><tspan fill="#EAF0FF">PORTFÓLIO OFICIAL</tspan><tspan fill="#6B7699"> • </tspan><tspan fill="#FF2E7E">MEC NOTA 5</tspan></text>
+    <text x="98" y="356" font-family="'Segoe UI', Helvetica, Arial, sans-serif"
+      font-size="13" font-weight="500" letter-spacing="4" fill="#8A93AD">MACHINE LEARNING<tspan fill="#5A6480"> · </tspan>IA GENERATIVA<tspan fill="#5A6480"> · </tspan>NLP</text>
+  </g>
+
+  <!-- Corner engineering ticks -->
+  <g stroke="#ED0A55" stroke-width="2" opacity="0.85" fill="none">
+    <path d="M40 40 H80 M40 40 V80"/>
+    <path d="M1240 360 H1200 M1240 360 V320"/>
+  </g>
+  <g class="node" fill="#FF2E7E">
+    <circle cx="40" cy="40" r="3"/><circle cx="1240" cy="360" r="3"/>
+  </g>
+  <line x1="98" y1="368" x2="470" y2="368" stroke="#1E2740" stroke-width="1" opacity="0.8"/>
+</svg>
